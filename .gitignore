@@ -1,7 +1,7 @@
-/app
-/program
-/main
-/test
+*app
+*program
+*main
+*test
 *.out
 *.exe
 
