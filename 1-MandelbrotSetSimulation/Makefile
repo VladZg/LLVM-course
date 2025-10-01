@@ -11,7 +11,7 @@ IR_FLAGS = -emit-llvm -S
 OPT_FLAGS = -O1
 CFLAGS = -I/usr/local/include
 LDFLAGS = -L/usr/local/lib -lSDL2
-SHELL_FLAGS = $(shell pkg-config sdl2)
+SHELL_FLAGS = $(shell pkg-config --cflags sdl2)
 
 all: $(TARGET) llvm-ir
 
@@ -25,7 +25,7 @@ $(IR_DIR):
 	@mkdir -p $(IR_DIR)
 
 $(IR_DIR)/%.ll: $(SRC_DIR)/%.c
-	$(CC) $< $(IR_FLAGS) $(OPT_FLAGS) $(SHELL_FLAGS) -o $@
+	$(CC) $< $(IR_FLAGS) $(OPT_FLAGS) -o $@ $(SHELL_FLAGS)
 
 clean:
 	rm -rf $(IR_DIR)

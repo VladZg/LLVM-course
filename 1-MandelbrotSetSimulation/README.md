@@ -3,8 +3,9 @@
 
 Сборка и запуск:
 ```bash
-make
-./app
+make all
+./app   # графическое приложение
+# .ll файлы в папке llvm-IR
 ```
 
 ![alt text](image.png)
